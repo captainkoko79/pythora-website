@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pythora Numerology — Your Daily Pythagorean Reading</title>
+  <meta name="description" content="Pythora delivers a personalized daily numerology reading based on the Pythagorean system. Discover your Personal Day number, today's color, and actionable guidance — every morning." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0D0B14;
+      --surface:   #1a1040;
+      --surface2:  #2D1B69;
+      --purple:    #6B4EE6;
+      --lavender:  #9B8AFF;
+      --light:     #C4B5FD;
+      --text:      #F0EBF8;
+      --muted:     #A09BB0;
+      --border:    rgba(155, 138, 255, 0.15);
+      --radius:    14px;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    a { color: var(--lavender); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(160deg, #0D0B14 0%, #1a1040 45%, #2D1B69 100%);
+      padding: 80px 24px 64px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 60%, rgba(107,78,230,0.35) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero .psi {
+      font-size: 72px;
+      line-height: 1;
+      margin-bottom: 20px;
+      color: var(--light);
+      font-family: Georgia, serif;
+      text-shadow: 0 0 40px rgba(155,138,255,0.6);
+    }
+    .hero h1 {
+      font-size: clamp(28px, 5vw, 40px);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+    }
+    .hero h1 span {
+      background: linear-gradient(90deg, var(--light), var(--lavender));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      font-size: 18px;
+      color: rgba(240,235,248,0.65);
+      max-width: 480px;
+      margin: 0 auto 36px;
+      line-height: 1.6;
+    }
+    .appstore-btn {
+      display: inline-block;
+      background: var(--purple);
+      color: #fff !important;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 16px;
+      letter-spacing: 0.2px;
+      transition: opacity 0.2s;
+      text-decoration: none !important;
+      box-shadow: 0 8px 24px rgba(107,78,230,0.45);
+    }
+    .appstore-btn:hover { opacity: 0.88; text-decoration: none; }
+
+    /* ── Sections ── */
+    section { padding: 56px 0; border-bottom: 1px solid var(--border); }
+    section:last-of-type { border-bottom: none; }
+
+    h2 {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--light);
+      margin-bottom: 20px;
+      letter-spacing: -0.2px;
+    }
+    p { color: rgba(240,235,248,0.75); margin-bottom: 14px; }
+    p:last-child { margin-bottom: 0; }
+
+    /* ── Feature list ── */
+    .features {
+      list-style: none;
+      display: grid;
+      gap: 14px;
+    }
+    .features li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      background: rgba(155,138,255,0.06);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+    }
+    .features li .icon {
+      font-size: 22px;
+      line-height: 1.3;
+      flex-shrink: 0;
+    }
+    .features li .copy strong {
+      display: block;
+      color: var(--text);
+      font-size: 15px;
+      margin-bottom: 2px;
+    }
+    .features li .copy span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* ── FAQ ── */
+    .faq { display: grid; gap: 16px; }
+    .faq-item {
+      background: rgba(155,138,255,0.05);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 22px;
+    }
+    .faq-item strong {
+      display: block;
+      color: var(--text);
+      font-size: 15px;
+      margin-bottom: 8px;
+    }
+    .faq-item p { font-size: 14px; margin: 0; }
+
+    /* ── Support box ── */
+    .support-box {
+      background: rgba(107,78,230,0.10);
+      border: 1px solid rgba(107,78,230,0.25);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      margin-top: 8px;
+    }
+    .support-box p { margin: 0; font-size: 15px; }
+    .support-box a { color: var(--lavender); font-weight: 500; }
+
+    /* ── Privacy ── */
+    .privacy p { font-size: 14px; }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 36px 24px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    footer a { color: var(--muted); }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="psi">Ψ</div>
+    <h1><span>Pythora Numerology</span></h1>
+    <p>Your daily Pythagorean reading — personalized to your birth date. Know your energy, your color, and your focus before the day begins.</p>
+    <a class="appstore-btn" href="#" id="appstore-link">Download on the App Store</a>
+  </div>
+
+  <!-- About -->
+  <section>
+    <div class="container">
+      <h2>About Pythora</h2>
+      <p>Pythora calculates six personal numbers from your birth date and today's date, then generates a reading uniquely tailored to you. This is not a generic horoscope — it's a precise numerological forecast built from your Life Path, Personal Year, Personal Month, Personal Day, Pinnacle, and Challenge numbers.</p>
+      <p>The system is based on Pythagorean numerology, the most widely practiced method worldwide, as taught by Hans Decoz. Each number is weighted by its temporal proximity to today, so your reading always reflects what's most relevant right now.</p>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section>
+    <div class="container">
+      <h2>What You Get Every Day</h2>
+      <ul class="features">
+        <li>
+          <div class="icon">✦</div>
+          <div class="copy">
+            <strong>Today's Insight</strong>
+            <span>A personalized interpretation that blends all six of your numbers into one cohesive reading for the day.</span>
+          </div>
+        </li>
+        <li>
+          <div class="icon">✓</div>
+          <div class="copy">
+            <strong>Do &amp; Avoid</strong>
+            <span>Clear, actionable guidance on where to direct your energy and what to steer clear of today.</span>
+          </div>
+        </li>
+        <li>
+          <div class="icon">◉</div>
+          <div class="copy">
+            <strong>Today's Color</strong>
+            <span>A color recommendation calibrated to your Personal Day (70%) and Personal Month (30%) numbers, with guidance on how to use it.</span>
+          </div>
+        </li>
+        <li>
+          <div class="icon">◇</div>
+          <div class="copy">
+            <strong>Your Numerology Profile</strong>
+            <span>Life Path, Personal Year, Pinnacle, and Challenge numbers — your complete numerological blueprint, always visible.</span>
+          </div>
+        </li>
+        <li>
+          <div class="icon">⌁</div>
+          <div class="copy">
+            <strong>English &amp; Vietnamese</strong>
+            <span>Full support for both languages — readings generated natively in your chosen language.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Support -->
+  <section id="support">
+    <div class="container">
+      <h2>Support</h2>
+      <p>Having trouble with the app or a question about your reading? We're happy to help.</p>
+      <div class="support-box">
+        <p>📬 Email us at <a href="mailto:support@pythoraapp.com">support@pythoraapp.com</a><br />
+        We aim to respond within 1–2 business days.</p>
+      </div>
+      <p style="margin-top: 20px; font-size: 14px; color: var(--muted);">
+        Common issues: if today's reading isn't loading, try pulling down to refresh. If the app seems stuck, force-quit and reopen it. Readings are cached daily — once loaded, they work without an internet connection.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <div class="container">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq">
+        <div class="faq-item">
+          <strong>How is my reading calculated?</strong>
+          <p>Pythora uses the Pythagorean method. It takes your birth date and reduces it alongside today's date to produce six personal numbers. These are weighted by how close they are to the present moment — your Personal Day carries the most influence (50%), followed by Month (25%), Year (15%), Pinnacle (5%), Challenge (3%), and Life Path (2%).</p>
+        </div>
+        <div class="faq-item">
+          <strong>Why does my reading change when I refresh?</strong>
+          <p>Refreshing requests a fresh AI-generated interpretation of your numbers. The underlying numbers stay the same for the day — only the prose changes. The app limits refreshes to 10 per day to prevent excessive generation costs.</p>
+        </div>
+        <div class="faq-item">
+          <strong>Can I change my birth date?</strong>
+          <p>Yes. Go to the Settings tab, tap the edit (pencil) icon on your profile card, enter your new date of birth, and tap Calculate. Your entire numerology profile will be recalculated instantly.</p>
+        </div>
+        <div class="faq-item">
+          <strong>Does the app work offline?</strong>
+          <p>Once today's reading has loaded, it is cached and available offline for the rest of the day. Generating a new reading or refreshing requires an internet connection.</p>
+        </div>
+        <div class="faq-item">
+          <strong>What are master numbers?</strong>
+          <p>In Pythagorean numerology, 11, 22, and 33 are considered "master numbers" and are not reduced to a single digit. Pythora recognizes and handles all three master numbers throughout your profile and daily readings.</p>
+        </div>
+        <div class="faq-item">
+          <strong>Is the app free?</strong>
+          <p>Yes, Pythora is free to download and use. The app is supported by advertising displayed within the daily reading screen.</p>
+        </div>
+        <div class="faq-item">
+          <strong>How do I change the language?</strong>
+          <p>Tap the Settings tab and select English or Tiếng Việt under the language section. Your next reading will be generated in the chosen language.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Privacy -->
+  <section class="privacy">
+    <div class="container">
+      <h2>Privacy Policy</h2>
+      <p>Pythora collects no personal information beyond your birth date, which is stored locally on your device and never transmitted to our servers. It is used solely to calculate your numerology numbers.</p>
+      <p>The app uses a randomly generated anonymous identifier (UUID) to associate your reading requests with our backend. This ID contains no personally identifiable information.</p>
+      <p><strong>Analytics:</strong> Pythora logs anonymised in-app events (e.g. "reading viewed", "language changed") to help us understand how the app is used. No names, emails, or device identifiers are collected.</p>
+      <p><strong>Advertising:</strong> Pythora uses Google AdMob to display native advertisements. AdMob may use device identifiers and usage data in accordance with <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>. You can opt out of personalised ads in your iOS Settings → Privacy &amp; Security → Apple Advertising.</p>
+      <p>If you have any questions about privacy, contact us at <a href="mailto:support@pythoraapp.com">support@pythoraapp.com</a>.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Jackie Pham · <a href="#support">Support</a> · <a href="mailto:support@pythoraapp.com">Contact</a></p>
+  </footer>
+
+</body>
+</html>
