@@ -186,7 +186,8 @@
     <div class="psi">Ψ</div>
     <h1><span>Pythora Numerology</span></h1>
     <p>Your daily Pythagorean reading — personalized to your birth date. Know your energy, your color, and your focus before the day begins.</p>
-    <a class="appstore-btn" href="#" id="appstore-link">Download on the App Store</a>
+    <a class="appstore-btn" href="#" id="appstore-link">Download for iOS</a>
+    <a class="appstore-btn" href="#" id="playstore-link" style="margin-left: 8px;">Get it on Android</a>
   </div>
 
   <!-- About -->
@@ -264,15 +265,15 @@
       <div class="faq">
         <div class="faq-item">
           <strong>How is my reading calculated?</strong>
-          <p>Pythora uses the Pythagorean method. It takes your birth date and reduces it alongside today's date to produce six personal numbers. These are weighted by how close they are to the present moment — your Personal Day carries the most influence (50%), followed by Month (25%), Year (15%), Pinnacle (5%), Challenge (3%), and Life Path (2%).</p>
+          <p>Pythora uses the Pythagorean method. It takes your birth date and reduces it alongside today's date to produce six personal numbers. These are weighted by how close they are to the present moment — your Personal Day carries the most influence (40%), followed by Month (25%), Year (15%), Life Path (12%), Pinnacle (5%), and Challenge (3%).</p>
         </div>
         <div class="faq-item">
           <strong>Why does my reading change when I refresh?</strong>
-          <p>Refreshing requests a fresh AI-generated interpretation of your numbers. The underlying numbers stay the same for the day — only the prose changes. The app limits refreshes to 10 per day to prevent excessive generation costs.</p>
+          <p>Refreshing requests a fresh AI-generated interpretation of your numbers. The underlying numbers stay the same for the day — only the prose changes. The app limits refreshes to 5 per day to prevent excessive generation costs.</p>
         </div>
         <div class="faq-item">
           <strong>Can I change my birth date?</strong>
-          <p>Yes. Go to the Settings tab, tap the edit (pencil) icon on your profile card, enter your new date of birth, and tap Calculate. Your entire numerology profile will be recalculated instantly.</p>
+          <p>Yes. Go to the Profile tab, tap the edit (pencil) icon on your profile card, enter your new date of birth, and tap Calculate. Your entire numerology profile will be recalculated instantly.</p>
         </div>
         <div class="faq-item">
           <strong>Does the app work offline?</strong>
@@ -288,7 +289,7 @@
         </div>
         <div class="faq-item">
           <strong>How do I change the language?</strong>
-          <p>Tap the Settings tab and select English or Tiếng Việt under the language section. Your next reading will be generated in the chosen language.</p>
+          <p>Tap the Profile tab and select English or Tiếng Việt under the language section. Your next reading will be generated in the chosen language.</p>
         </div>
       </div>
     </div>
@@ -298,10 +299,14 @@
   <section class="privacy" id="privacy">
     <div class="container">
       <h2>Privacy Policy</h2>
-      <p>Pythora collects no personal information beyond your birth date, which is stored locally on your device and never transmitted to our servers. It is used solely to calculate your numerology numbers.</p>
-      <p>The app uses a randomly generated anonymous identifier (UUID) to associate your reading requests with our backend. This ID contains no personally identifiable information.</p>
-      <p><strong>Analytics:</strong> Pythora logs anonymised in-app events (e.g. "reading viewed", "language changed") to help us understand how the app is used. No names, emails, or device identifiers are collected.</p>
-      <p><strong>Advertising:</strong> Pythora uses Google AdMob to display native advertisements. AdMob may use device identifiers and usage data in accordance with <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>. You can opt out of personalised ads in your iOS Settings → Privacy &amp; Security → Apple Advertising.</p>
+      <p><em>Last updated: March 29, 2026</em></p>
+      <p><strong>Data we collect:</strong> Pythora collects your birth date, which is stored locally on your device and also transmitted to our backend server solely to generate your personalized daily reading. We do not collect your name, email, phone number, or any other personal information.</p>
+      <p><strong>Anonymous identifier:</strong> The app generates a random anonymous identifier (UUID) to associate your reading requests with our backend. This ID contains no personally identifiable information and cannot be used to identify you.</p>
+      <p><strong>Backend processing:</strong> When generating a reading, your birth date and calculated numerology numbers are sent to our server (hosted on Supabase) and forwarded to OpenAI to produce your daily interpretation. We do not store your birth date on our servers — it is used only for the duration of the request. Generated readings are cached anonymously by numerology number combination, not by user identity.</p>
+      <p><strong>Analytics:</strong> Pythora may log anonymised in-app events (e.g. "reading viewed", "language changed") to help us understand how the app is used. No names, emails, or device identifiers are collected.</p>
+      <p><strong>Advertising:</strong> Pythora uses Google AdMob to display advertisements. AdMob may use device identifiers and usage data in accordance with <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>. You can opt out of personalised ads in your device settings: on iOS, go to Settings → Privacy &amp; Security → Apple Advertising; on Android, go to Settings → Google → Ads.</p>
+      <p><strong>Data retention:</strong> Your birth date is stored only on your device. Anonymous reading cache entries expire after 24 hours. API call logs (containing only your anonymous UUID and date) are retained for rate-limiting purposes and are periodically purged.</p>
+      <p><strong>Children's privacy:</strong> Pythora is not directed at children under 13. We do not knowingly collect information from children under 13.</p>
       <p>If you have any questions about privacy, contact us at <a href="mailto:khoa.pham.mindful@gmail.com">support@pythoraapp.com</a>.</p>
     </div>
   </section>
